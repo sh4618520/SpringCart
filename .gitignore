@@ -1,0 +1,25 @@
+# ======= 백엔드 (Spring Boot) 관련 예외 =======
+backend/.gradle/
+backend/build/
+backend/out/
+backend/.idea/
+backend/*.iml
+backend/*.ipr
+backend/*.iws
+
+# ======= 프론트엔드 (React / Vite) 관련 예외 =======
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+
+# ======= OS 및 툴 관련 예외 =======
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
