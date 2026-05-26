@@ -20,6 +20,6 @@ public class ProductResponse {
         this.description = product.getDescription();
         this.stockQuantity = product.getStockQuantity();
         this.imageUrl = product.getImageUrl();
-        this.categoryName = product.getCategory() != null ? product.getCategory().getName() : null;
+        this.categoryName = product.getCategory() != null ? product.getCategory().getName() : "미분류";
     }
 }

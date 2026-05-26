@@ -2,8 +2,10 @@ package com.weekend.springcart;
 
 import com.weekend.springcart.domain.Category;
 import com.weekend.springcart.domain.Product;
+import com.weekend.springcart.domain.User;
 import com.weekend.springcart.repository.CategoryRepository;
 import com.weekend.springcart.repository.ProductRepository;
+import com.weekend.springcart.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,10 +15,21 @@ import org.springframework.stereotype.Component;
 public class DataInitializer implements CommandLineRunner {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
+    private final UserRepository userRepository;
 
     @Override
     public void run(String... args) throws Exception {
-        // 1. 테스트용 상위 카테고리 생성 및 저장
+
+        System.out.println("========== 🚀 테스트 더미 데이터 주입 시작! ==========");
+
+        // 1. 1번 테스트 유저 생성
+        User user = new User();
+        user.setEmail("test@test.com");
+        user.setName("테스트유저");
+        user.setPassword("1234");
+        userRepository.save(user);
+
+        // 2. 테스트용 상위 카테고리 생성 및 저장
         Category fashion = new Category();
         fashion.setName("패션/의류");
         categoryRepository.save(fashion);
@@ -25,7 +38,7 @@ public class DataInitializer implements CommandLineRunner {
         electronics.setName("디지털/가전");
         categoryRepository.save(electronics);
 
-        // 2. 패션 카테고리에 속한 상품 등록
+        // 3. 패션 카테고리에 속한 상품 등록
         Product p1 = new Product();
         p1.setCategory(fashion);
         p1.setName("오버핏 기모 맨투맨");
